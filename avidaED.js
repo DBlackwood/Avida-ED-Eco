@@ -171,7 +171,13 @@
 //   in standard number notation for 0.01 <= num < 1000. Original function still available 
 //   should we want to change back. 
 // - parameter format ?devo=true or http://localhost:8000/?devo=true
-// 
+//
+// Avida-ED 4.0.27 Beta
+// - Still working on main menu drop down button functions and able-disable settings
+// - change Organism Page to have setup as the default page. 
+// - also fixed shading on togglebuttons and logic so that changing setup/stats button on population/organism 
+//   page does not change which data is on the right side panel on the other page. 
+//
 // Generic Notes -------------------------------------------------------------------------------------------------------
 
 //
@@ -185,7 +191,7 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 //  Notes on problems below:
-//---------------------------------------------------------------------------------------------------------- Problems --
+//--------------------x-------------------------------------------------------------------------------------- Problems --
 //  
 //  Population Page -------
 //  
@@ -1251,6 +1257,14 @@ av.ui.feedback = function(){
     if ('populationBlock' == av.ui.page) {
       av.dom.popInfoVert.style.display = 'block';
       document.getElementById('allAvidaContainer').className = 'all3pop';
+
+      if ('labInfoClass labInfoFlex' == av.dom.setupBlock.className) {
+        document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
+        document.getElementById('StatsButton').className = 'toggleRitButton';
+      } else {
+        document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
+        document.getElementById('SetupButton').className = 'toggleLftButton';
+      }
       resizePopulationPage();
     };    
     
@@ -1261,11 +1275,15 @@ av.ui.feedback = function(){
       if ('settings' == av.ui.orgInfo) {
         av.dom.orgSettings.style.display = 'block';
         av.dom.orgDetailID.style.display = 'none';
+        document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
+        document.getElementById('StatsButton').className = 'toggleRitButton';
       }
       else {
         av.dom.orgSettings.style.display = 'none';
         av.dom.orgDetailID.style.display = 'block';
         av.ui.adjustOrgInstructionTextAreaSize();
+        document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
+        document.getElementById('SetupButton').className = 'toggleLftButton';
       };
       
       if (undefined !== av.traceObj) {
@@ -1363,7 +1381,7 @@ av.ui.feedback = function(){
   // if (av.dbg.flg.root) { console.log('Root: before av.ptd.rightInfoPanelToggleButton'); }
   //------------------------------------------------------------------------------- av.ptd.rightInfoPanelToggleButton --
   av.ptd.rightInfoPanelToggleButton = function(domObj) {
-    //console.log('in av.ptd.rightInfoPanelToggleButton: domObj.id is', domObj.id);
+    console.log('in av.ptd.rightInfoPanelToggleButton: domObj.id is', domObj.id);
     
     // change items with the class 'labInfoClass' to 'labInfoClass labInfoNone';
     if ('populationBlock' == av.ui.page) {
@@ -1388,16 +1406,16 @@ av.ui.feedback = function(){
 
       // show set up panel
       if ('SetupButton' == domObj.id) {
-        document.getElementById('SetupButton').className = 'toggleRitButton activeBtn';
-        document.getElementById('StatsButton').className = 'toggleLftButton';
+        document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
+        document.getElementById('StatsButton').className = 'toggleRitButton';
         av.dom.popStatsBlock.className = 'labInfoClass labInfoNone';
         av.dom.setupBlock.className = 'labInfoClass labInfoFlex';
         av.dom.setupTab.className = 'tablinks active';
         //console.log('setupButton.className =', document.getElementById('SetupButton').className);
       } else {
         // show Statisitcal data about grid
-        document.getElementById('StatsButton').className = 'toggleLftButton activeBtn';
-        document.getElementById('SetupButton').className = 'toggleRitButton';
+        document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
+        document.getElementById('SetupButton').className = 'toggleLftButton';
         av.dom.popStatsBlock.className = 'labInfoClass labInfoFlex';
         av.dom.setupBlock.className = 'labInfoClass labInfoNone';
         av.dom.statsTab.className = 'tablinks active'; 
@@ -1422,11 +1440,15 @@ av.ui.feedback = function(){
         av.ui.orgInfo = 'settings';
         av.dom.orgSettings.style.display = 'block';
         av.dom.orgDetailID.style.display = 'none';
+        document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
+        document.getElementById('StatsButton').className = 'toggleRitButton';
       }
       else {
         av.ui.orgInfo = 'details';
         av.dom.orgSettings.style.display = 'none';
         av.dom.orgDetailID.style.display = 'block';
+        document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
+        document.getElementById('SetupButton').className = 'toggleLftButton';
         // console.log('av.ind.settingsChanged=', av.ind.settingsChanged);
         if (av.ind.settingsChanged) av.msg.doOrgTrace('av.ptd.rightInfoPanelToggleButton:av.ind.settingsChanged');
       }
@@ -1464,16 +1486,16 @@ av.ui.feedback = function(){
     evt.currentTarget.className = "tablinks active";
     //console.log('id=', evt.currentTarget.id);
     if ('setupTab' == evt.currentTarget.id) {
-      document.getElementById('SetupButton').className = 'toggleRitButton activeBtn';
-      document.getElementById('StatsButton').className = 'toggleLftButton';
+      document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
+      document.getElementById('StatsButton').className = 'toggleRitButton';
     }
     else if ('statsTab' == evt.currentTarget.id) {
-      document.getElementById('SetupButton').className = 'toggleRitButton';
-      document.getElementById('StatsButton').className = 'toggleLftButton activeBtn';      
+      document.getElementById('SetupButton').className = 'toggleLftButton';
+      document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';      
     }
     else {
-      document.getElementById('SetupButton').className = 'toggleRitButton';
-      document.getElementById('StatsButton').className = 'toggleLftButton';            
+      document.getElementById('SetupButton').className = 'toggleLftButton';
+      document.getElementById('StatsButton').className = 'toggleRitButton';            
     }
   };
   //------------------------------------------------------------------------------------------- end av.ptd.processTab --
@@ -2980,11 +3002,20 @@ av.ui.feedback = function(){
   av.sgr.buildHtml();
   // av.sgr.defaults;
 
+  // Make setup the default in Organism Page
+  av.ui.mainBoxSwap('organismBlock','last_things_done');  // just uncommented jan 2019
+  av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
+
   if (av.debug.ind) {
     console.log('orgInfoHolder.scrollWidth, client, offset =', av.dom.orgInfoHolder.scrollWidth, av.dom.orgInfoHolder.clientWidth, 
     av.dom.orgInfoHolder.offsetWidth, '; $width, $innerWidth, $outerWidth, css(width)=',
     $("#orgInfoHolder").width(), $("#orgInfoHolder").innerWidth(), $("#orgInfoHolder").outerWidth(), $("#orgInfoHolder").css('width') );
   }
+  
+  // Make setup the default in Organism Page
+  av.ui.mainBoxSwap('organismBlock','last_things_done');  // just uncommented jan 2019
+  av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
+  
   // if (av.dbg.flg.root) { console.log('Root: before mainBoxSwap'); }
   av.ui.mainBoxSwap('populationBlock','last_things_done');  // just uncommented jan 2019
   av.dom.popStatsBlock.className = 'labInfoClass labInfoNone';
@@ -2996,7 +3027,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.26 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.27 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x
@@ -3005,9 +3036,10 @@ av.ui.feedback = function(){
   };
   //av.ui.toggleDevelopmentDisplays('Last_things_done');  // this needs to be called in production version
 
-  // test Setup Section line  - comment out for production
+  // Setup Section first shown
   av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
-  // production line
+  
+  // stats Section first shown
   // av.ptd.rightInfoPanelToggleButton(av.dom.StatsButton);
   
   //av.changeAllSgrRegionLayout(av.sgr.nutdft.uiAll.regionLayout, 'last_things_done');   //does not seem to be needed. 2021_714

@@ -428,12 +428,12 @@ jQuery(document).ready(function($) {
   //-------------------------------------------------------------------------- track user clicks in a freezer section --
   // responds to ALL clicks on page.
   $(document).on('click', function(event) {
-      console.log('targetElement =', event.target);
-      console.log('targetElement.id =', event.target.id);
-      console.log('targetElement.classList =', event.target.classList);
-      console.log('targetElement.classList[0] =', event.target.classList[0]); //item
-      console.log('targetElement.classList[1] =', event.target.classList[1]); //type
-      //console.log('try = ', $(".item.c, .item.g, item.w"));
+      // console.log('targetElement =', event.target);
+      // console.log('targetElement.id =', event.target.id);
+      // console.log('targetElement.classList =', event.target.classList);
+      // console.log('targetElement.classList[0] =', event.target.classList[0]); //item
+      // console.log('targetElement.classList[1] =', event.target.classList[1]); //type
+      //  console.log('try = ', $(".item.c, .item.g, item.w"));
       
       // Assign target.id as selected freezer item if user clicked on a freezer item
 
