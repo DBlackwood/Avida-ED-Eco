@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%; 
   height: 100%; 
   z-index: 1000; 
-  background: #13332A
+  background: black;
 }
 
 #populationBlock {

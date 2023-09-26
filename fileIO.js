@@ -87,7 +87,7 @@
             av.frd.environmentCFG2form(av.fio.thisfile.asText().trim());
           }
           else if ('c0/events.cfg' == av.fio.anID) {
-            av.frd.eventsCFG2form(av.fio.thisfile.asText().trim(), 'av.fio.processFiles');
+            av.frd.eventsCFG2form(av.fio.thisfile.asText().trim(), 'av.fio.readZipWS');
           }
         }
         

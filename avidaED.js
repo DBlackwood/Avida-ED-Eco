@@ -178,6 +178,10 @@
 // - also fixed shading on togglebuttons and logic so that changing setup/stats button on population/organism 
 //   page does not change which data is on the right side panel on the other page. 
 //
+// Avida-ED 4.0.28 Beta
+// - added splash screen. 
+// - turns off 3 seconds after starting to load the freezer. 
+//
 // Generic Notes -------------------------------------------------------------------------------------------------------
 
 //
@@ -331,7 +335,7 @@ require([
   // *
 
   /********************************************************************************************************************/
-  // Splash Screen code stopped when ready message from Avida
+  // show message to reload avida if it has not loaded for 121 seconds
   /********************************************************************************************************************/
   setTimeout(function () {
     if (!av.ui.loadOK) {
@@ -2351,7 +2355,21 @@ av.ui.feedback = function(){
   // need to change how loadConfig worrks
 
   // if (av.dbg.flg.root) { console.log('Root: before calling av.fio.readZipWS ---------------'); }
-  av.fio.readZipWS(av.fio.defaultFname, true);  
+  av.fio.readZipWS(av.fio.defaultFname, true); 
+  setTimeout(function() {
+  // turn off splash screen after delay
+        $('#splash').remove(); //hides splash screen.
+        if (av.debug.msg) console.log('avida:notify: ',msg.message);
+        console.log('deay 3 seconds - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+        if (av.debug.msg) userMsgLabel.textContent = '| Avidia notification: ' + msg.message; //with splash screen no longer need ready message
+        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
+        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
+        // to combine the forward and reverse gif.
+        document.getElementById("appReloadModelID").style.display="none";
+  //end turn off splash screen
+  }, 3000); // 3000 milliseconds = 3 seconds
+
+  
 
   //Need to get @default (the condents of folder c0) into the active config field. 
 
@@ -3027,7 +3045,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.27 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.28 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x
