@@ -317,22 +317,6 @@ require([
   'use strict';
   if (av.dbg.flg.root) { console.log('before type of $'); }
   
-  //------------------------------------------------------------------------------ remove splash screen a few seconds --
-  //setTimeout(function() {
-  // turn off splash screen after delay
-        $('#splash').remove(); //hides splash screen.
-        if (av.debug.msg) console.log('avida:notify: ',msg.message);
-        console.log('delay none seconds - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-        if (av.debug.msg) userMsgLabel.textContent = '| Avidia notification: ' + msg.message; //with splash screen no longer need ready message
-        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-        // to combine the forward and reverse gif.
-        document.getElementById("appReloadModelID").style.display="none";
-  //end turn off splash screen
-  //}, 0); // 3000 milliseconds = 3 seconds
-
-  // 
-  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
   setTimeout(function () {
     if (!av.ui.loadOK) {
       //alert('Avida-ED failed to load, please try re-loading');
