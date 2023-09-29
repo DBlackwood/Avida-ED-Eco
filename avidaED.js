@@ -180,7 +180,11 @@
 //
 // Avida-ED 4.0.28 Beta
 // - added splash screen. 
-// - turns off 3 seconds after starting to load the freezer. 
+// - splash screen turns off 3 seconds after starting to load the freezer. 
+//
+// Avida-ED 4.0.29 Beta
+// - fixed shading on Setup/Stats toggle button.  
+// - splash screen turns off 3 milliseconds after starting to run avidaED.js
 //
 // Generic Notes -------------------------------------------------------------------------------------------------------
 
@@ -335,8 +339,23 @@ require([
   // *
 
   /********************************************************************************************************************/
-  // show message to reload avida if it has not loaded for 121 seconds
-  /********************************************************************************************************************/
+
+  //------------------------------------------------------------------------------ remove splash screen a few seconds --
+  setTimeout(function() {
+  // turn off splash screen after delay
+        $('#splash').remove(); //hides splash screen.
+        if (av.debug.msg) console.log('avida:notify: ',msg.message);
+        console.log('delay 3 milliseconds - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+        if (av.debug.msg) userMsgLabel.textContent = '| Avidia notification: ' + msg.message; //with splash screen no longer need ready message
+        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
+        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
+        // to combine the forward and reverse gif.
+        document.getElementById("appReloadModelID").style.display="none";
+  //end turn off splash screen
+  }, 3); // 3000 milliseconds = 3 seconds
+
+  // 
+  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
   setTimeout(function () {
     if (!av.ui.loadOK) {
       //alert('Avida-ED failed to load, please try re-loading');
@@ -345,7 +364,7 @@ require([
   }, 121000);
 
   /********************************************************************************************************************/
-  // if (av.dbg.flg.root) { console.log('Root: after splash screen code'); }
+  // if (av.dbg.flg.root) { console.log('Root: after splash screen Timeout code'); }
   // -------------------------------------------------------------------------------------------------------------------
   // Initialize variables that depend on files loaded in requirement statement
   // -------------------------------------------------------------------------------------------------------------------
@@ -1264,10 +1283,10 @@ av.ui.feedback = function(){
 
       if ('labInfoClass labInfoFlex' == av.dom.setupBlock.className) {
         document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
-        document.getElementById('StatsButton').className = 'toggleRitButton';
+        document.getElementById('StatsButton').className = 'toggleRitButton restBtn';
       } else {
         document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
-        document.getElementById('SetupButton').className = 'toggleLftButton';
+        document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
       }
       resizePopulationPage();
     };    
@@ -1280,14 +1299,14 @@ av.ui.feedback = function(){
         av.dom.orgSettings.style.display = 'block';
         av.dom.orgDetailID.style.display = 'none';
         document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
-        document.getElementById('StatsButton').className = 'toggleRitButton';
+        document.getElementById('StatsButton').className = 'toggleRitButton restBtn';
       }
       else {
         av.dom.orgSettings.style.display = 'none';
         av.dom.orgDetailID.style.display = 'block';
         av.ui.adjustOrgInstructionTextAreaSize();
         document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
-        document.getElementById('SetupButton').className = 'toggleLftButton';
+        document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
       };
       
       if (undefined !== av.traceObj) {
@@ -1411,7 +1430,7 @@ av.ui.feedback = function(){
       // show set up panel
       if ('SetupButton' == domObj.id) {
         document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
-        document.getElementById('StatsButton').className = 'toggleRitButton';
+        document.getElementById('StatsButton').className = 'toggleRitButton restBtn';
         av.dom.popStatsBlock.className = 'labInfoClass labInfoNone';
         av.dom.setupBlock.className = 'labInfoClass labInfoFlex';
         av.dom.setupTab.className = 'tablinks active';
@@ -1419,7 +1438,7 @@ av.ui.feedback = function(){
       } else {
         // show Statisitcal data about grid
         document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
-        document.getElementById('SetupButton').className = 'toggleLftButton';
+        document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
         av.dom.popStatsBlock.className = 'labInfoClass labInfoFlex';
         av.dom.setupBlock.className = 'labInfoClass labInfoNone';
         av.dom.statsTab.className = 'tablinks active'; 
@@ -1445,14 +1464,14 @@ av.ui.feedback = function(){
         av.dom.orgSettings.style.display = 'block';
         av.dom.orgDetailID.style.display = 'none';
         document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
-        document.getElementById('StatsButton').className = 'toggleRitButton';
+        document.getElementById('StatsButton').className = 'toggleRitButton restBtn';
       }
       else {
         av.ui.orgInfo = 'details';
         av.dom.orgSettings.style.display = 'none';
         av.dom.orgDetailID.style.display = 'block';
         document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';
-        document.getElementById('SetupButton').className = 'toggleLftButton';
+        document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
         // console.log('av.ind.settingsChanged=', av.ind.settingsChanged);
         if (av.ind.settingsChanged) av.msg.doOrgTrace('av.ptd.rightInfoPanelToggleButton:av.ind.settingsChanged');
       }
@@ -1491,15 +1510,15 @@ av.ui.feedback = function(){
     //console.log('id=', evt.currentTarget.id);
     if ('setupTab' == evt.currentTarget.id) {
       document.getElementById('SetupButton').className = 'toggleLftButton activeBtn';
-      document.getElementById('StatsButton').className = 'toggleRitButton';
+      document.getElementById('StatsButton').className = 'toggleRitButton restBtn';
     }
     else if ('statsTab' == evt.currentTarget.id) {
-      document.getElementById('SetupButton').className = 'toggleLftButton';
+      document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
       document.getElementById('StatsButton').className = 'toggleRitButton activeBtn';      
     }
     else {
-      document.getElementById('SetupButton').className = 'toggleLftButton';
-      document.getElementById('StatsButton').className = 'toggleRitButton';            
+      document.getElementById('SetupButton').className = 'toggleLftButton restBtn';
+      document.getElementById('StatsButton').className = 'toggleRitButton restBtn';            
     }
   };
   //------------------------------------------------------------------------------------------- end av.ptd.processTab --
@@ -2356,23 +2375,10 @@ av.ui.feedback = function(){
 
   // if (av.dbg.flg.root) { console.log('Root: before calling av.fio.readZipWS ---------------'); }
   av.fio.readZipWS(av.fio.defaultFname, true); 
-  setTimeout(function() {
-  // turn off splash screen after delay
-        $('#splash').remove(); //hides splash screen.
-        if (av.debug.msg) console.log('avida:notify: ',msg.message);
-        console.log('deay 3 seconds - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-        if (av.debug.msg) userMsgLabel.textContent = '| Avidia notification: ' + msg.message; //with splash screen no longer need ready message
-        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-        // to combine the forward and reverse gif.
-        document.getElementById("appReloadModelID").style.display="none";
-  //end turn off splash screen
-  }, 3000); // 3000 milliseconds = 3 seconds
-
-  
 
   //Need to get @default (the condents of folder c0) into the active config field. 
 
+  //tiba delete later? 
   //------------------------------------------------------- call StatsButton.click to get the display in default mode --
   // if (av.dbg.flg.root) { console.log('Root: before call StatsButton.click'); }
   document.getElementById('StatsButton').click();
@@ -3021,7 +3027,7 @@ av.ui.feedback = function(){
   // av.sgr.defaults;
 
   // Make setup the default in Organism Page
-  av.ui.mainBoxSwap('organismBlock','last_things_done');  // just uncommented jan 2019
+  av.ui.mainBoxSwap('organismBlock','last_things_done');  
   av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
 
   if (av.debug.ind) {
@@ -3029,13 +3035,9 @@ av.ui.feedback = function(){
     av.dom.orgInfoHolder.offsetWidth, '; $width, $innerWidth, $outerWidth, css(width)=',
     $("#orgInfoHolder").width(), $("#orgInfoHolder").innerWidth(), $("#orgInfoHolder").outerWidth(), $("#orgInfoHolder").css('width') );
   }
-  
-  // Make setup the default in Organism Page
-  av.ui.mainBoxSwap('organismBlock','last_things_done');  // just uncommented jan 2019
-  av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
-  
+    
   // if (av.dbg.flg.root) { console.log('Root: before mainBoxSwap'); }
-  av.ui.mainBoxSwap('populationBlock','last_things_done');  // just uncommented jan 2019
+  av.ui.mainBoxSwap('populationBlock','last_things_done'); 
   av.dom.popStatsBlock.className = 'labInfoClass labInfoNone';
   av.dom.setupBlock.className = 'labInfoClass labInfoFlex';
 
@@ -3045,7 +3047,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.28 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.29 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x
@@ -3056,10 +3058,7 @@ av.ui.feedback = function(){
 
   // Setup Section first shown
   av.ptd.rightInfoPanelToggleButton(av.dom.SetupButton);
-  
-  // stats Section first shown
-  // av.ptd.rightInfoPanelToggleButton(av.dom.StatsButton);
-  
+    
   //av.changeAllSgrRegionLayout(av.sgr.nutdft.uiAll.regionLayout, 'last_things_done');   //does not seem to be needed. 2021_714
   //av.sgr.ChangeAllsugarsupplyTypeSlct('unlimited','Last_things_done');    //does not seem to be needed. 2021_714
   av.sgr.OpenCloseAllSugarDetails('allClose', 'Last_things_done');
@@ -3082,7 +3081,7 @@ av.ui.feedback = function(){
   // **************************************************************************************************************** */
 
   var ro = new ResizeObserver(entries => {
-    //console.log('in ResizeObserver');
+    console.log('********************************************************************************** in ResizeObserver');
     for (let entry of entries) {
       const cr = entry.contentRect;
       if (av.dbg.flg.dsz) { console.log(entry.target.id, `size wd, ht: ${cr.width}px  ${cr.height}px`); }
@@ -3106,14 +3105,6 @@ av.ui.feedback = function(){
     return Number((aa - (Math.floor(aa / bb) * bb)).toPrecision(8));
   };
   
-  //console.log('before resize function');
-  //does this need a timer function to delay response slightly so the page is not re-written as frequently when the
-  //page is changing sizes  ??
-  //----------------------------------------------------------------------------------------------------------------------
-  $(window).resize(function () {
-    //console.log('Does trigger on resize');
-    // av.ui.resizePopLayout('window.resize');    //does not work.
-  });
 });
 
 //----------------------------------------------------------------------------------------------------------------------

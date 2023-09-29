@@ -280,6 +280,9 @@ html {
   .activeBtn {
     background: #ccc;
   }
+  .restBtn {
+    background: #EFEFEF;
+  }
   
 /* headerRow contains leftPnlBtnHolder mainMenu headerMsg RtSideToggleButtons ritePnlBtnHolder */
 

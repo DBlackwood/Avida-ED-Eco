@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avida-ED 4.0.28</title>
+    <title>Avida-ED 4.0.29</title>
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <style>
@@ -36,11 +36,11 @@
   <body id='main_display' class='claro'>
 
     <span id="http://stackoverflow.com/questions/20828799/creating-a-splash-page-in-html5"></span>
-    <div id='splash' style='display: block;'>
+    <div id='splash' style='display: none;'>
       <div align='center'>
         <br />
-        <h1>Avida-ED 4.0.28 Beta Testing is loading . . .</h1>
-        <img src='images/Avida-ED-logo.png' /><br /><br />
+        <h1>Avida-ED 4.0.29 Beta Testing is loading . . .</h1>
+        <img src='images/Avida-ED-logo.png' />&nbsp;&nbsp;&nbsp;&nbsp;
         <img src='images/avidaGrow_15.gif' />
       </div>
     </div>
@@ -144,7 +144,7 @@
 
        <div id='RtSideToggleButtons'>
           <input id='SetupButton' type='button' class='toggleLftButton activeBtn' value='Setup' onclick='av.ptd.rightInfoPanelToggleButton(this)'/>
-          <input id='StatsButton' type='button' class='toggleRitButton' value='Stats' onclick='av.ptd.rightInfoPanelToggleButton(this)'/>
+          <input id='StatsButton' type='button' class='toggleRitButton restBtn' value='Stats' onclick='av.ptd.rightInfoPanelToggleButton(this)'/>
         </div>
 
         <div id='ritePnlBtnHolder'>
@@ -1587,7 +1587,7 @@
           <span class='aboutAvidaEDcloseHldr'>
             <button id='aboutAvidaEDcloseButton' onclick='av.ui.aboutAvidaED_Close();'>Close</button>
           </span>
-          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.28 Beta</h2>
+          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.29 Beta</h2>
           <span class='aboutAvidaEDcloseHldr'>
           </span>
         </div>
