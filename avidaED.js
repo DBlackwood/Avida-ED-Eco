@@ -194,6 +194,9 @@
 // - - moved html for Setup on Popupulation page to be before that of Stats since the default is now to have Stats
 // - - open first.
 //
+// Avida-ED 4.0.31 Beta
+// - turned splash screen back on because setup on population page looks awful. 
+// 
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
 // [option]<alt>{go} to get library in the list for finder
@@ -3042,7 +3045,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.30 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.31 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x
