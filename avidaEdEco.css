@@ -1285,9 +1285,9 @@ background: #888;
   background: white;
 }
 
-#geometyHideButton {
-  grid-area: geometyHideButton;
-  display: inline-block;
+#geometryHideButton {
+  grid-area: geometryHideButton;
+  display: none;  /* inline-block;  */
   min-height: 30px;
   min-width: 30px;
   color: #EEEEEE; /*background color of 'odd' rows */
@@ -1295,7 +1295,7 @@ background: #888;
 
 #ancestorRow {
   display: grid;
-  grid-template-areas: 'ancestorContainer geometyHideButton';
+  grid-template-areas: 'ancestorContainer geometryHideButton';
   grid-template-columns: auto auto;
   grid-column-gap: 1px;
   width: 100%;

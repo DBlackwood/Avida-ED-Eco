@@ -186,8 +186,13 @@
 // - fixed shading on Setup/Stats toggle button.  
 // - splash screen turns off 3 milliseconds after starting to run avidaED.js
 //
+// Avida-ED 4.0.30 Beta
+// - moved splash screen function to turn off after 3 seconds to bottom of index.html to avoid eror.
+// - then Jay convinced Rob to NOT include the splash screen. 
+// - removed hidden button to work no advanced geometry mode within 'Environemtnal Settings'. 
+// - - look at #geometryHideButton in avidaEDEco.css to switch back and work on spatial environment. 
+//
 // Generic Notes -------------------------------------------------------------------------------------------------------
-
 //
 // [option]<alt>{go} to get library in the list for finder
 //
@@ -3035,7 +3040,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.29 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.30 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x

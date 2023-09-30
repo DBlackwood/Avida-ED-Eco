@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avida-ED 4.0.29</title>
+    <title>Avida-ED 4.0.30</title>
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <style>
@@ -31,32 +31,15 @@
       @import 'menubar.css';
       @import 'lib/dragula/dragula-v3.7.2.min.css';
     </style>
-    <script type="text/javascript">
-  //------------------------------------------------------------------------------ remove splash screen a few seconds --
-  setTimeout(function() {
-  // turn off splash screen after delay
-        document.getElementById("splash").style.display="none";
-        //$('#splash').remove(); //hides splash screen.
-        console.log('index: delay 3000 milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-        // to combine the forward and reverse gif.
-        document.getElementById("appReloadModelID").style.display="none";
-  //end turn off splash screen
-  }, 3000); // 3000 milliseconds = 3 seconds
-
-  // 
-  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
-    </script>
   </head>
 
   <body id='main_display' class='claro'>
 
     <span id="http://stackoverflow.com/questions/20828799/creating-a-splash-page-in-html5"></span>
-    <div id='splash' style='display: block;'>
+    <div id='splash' style='display: none;'>
       <div align='center'>
         <br />
-        <h1>Avida-ED 4.0.29 Beta Testing is loading . . .</h1>
+        <h1>Avida-ED 4.0.30 Beta Testing is loading . . .</h1>
         <img src='images/Avida-ED-logo.png' />&nbsp;&nbsp;&nbsp;&nbsp;
         <img src='images/avidaGrow_15.gif' />
       </div>
@@ -759,7 +742,7 @@
                 <div class='odd'><div class='enviroSubHeading'>Ancestral Organism(s):</div>
                   <div id='ancestorRow'>
                     <div id='ancestorBox' class='ancestorContainer'></div>
-                    <div id='geometyHideButton' class='geoButtonCammo'; onclick='av.ui.toggleComplexityLevel(this)'>
+                    <div id='geometryHideButton' class='geoButtonCammo' onclick='av.ui.toggleComplexityLevel(this)'>
                       &nbsp;&nbsp; Show / Hide Geometry menus
                     </div>
                   </div>
@@ -1604,7 +1587,7 @@
           <span class='aboutAvidaEDcloseHldr'>
             <button id='aboutAvidaEDcloseButton' onclick='av.ui.aboutAvidaED_Close();'>Close</button>
           </span>
-          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.29 Beta</h2>
+          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.30 Beta</h2>
           <span class='aboutAvidaEDcloseHldr'>
           </span>
         </div>
@@ -2060,6 +2043,25 @@
     <!-- yemi: import jQuery: -->
     <!-- diane noted that separate jquery scource for dragulaDnd.js because, -->
     <!-- diane did not explain the require statement in avidaED.js -->
+    <script type="text/javascript">
+  //------------------------------------------------------------------------------ remove splash screen a few seconds --
+  setTimeout(function() {
+  // turn off splash screen after delay
+        document.getElementById("splash").style.display="none";
+        //$('#splash').remove(); //hides splash screen.
+        console.log('index: delay 0 milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
+        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
+        // to combine the forward and reverse gif.
+        document.getElementById("appReloadModelID").style.display="none";
+  //end turn off splash screen
+  }, 0); // 3000 milliseconds = 3 seconds
+
+  // 
+  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
+    </script>
+    
+    
     <script src="lib/jquery-v3.4.1.min.js"></script>
     <script type="text/javascript" src="lib/dragula/dragula-v3.7.2.min.js"></script> 
     <script type='text/javascript' src='lib/dojo-release-1.16.4/dojo/dojo.js'

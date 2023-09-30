@@ -377,7 +377,7 @@ av.ui.toggleDevelopmentDisplays = function () {
     document.getElementById('resrceDataHolder').style.display = block2b[ndx2b];
 
     document.getElementById('developmentToggle').className = devoTog2b[ndx2b];
-    document.getElementById('geometyHideButton').className = geoHideBut2b[ndx2b];
+    document.getElementById('geometryHideButton').className = geoHideBut2b[ndx2b];
     document.getElementById('popInfoTabHolder').className = popInfoTab2b[ndx2b];
 
     av.dom.mnDebug.style.visibility = visible2b[ndx2b];
