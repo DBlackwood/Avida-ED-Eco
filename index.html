@@ -31,12 +31,13 @@
       @import 'menubar.css';
       @import 'lib/dragula/dragula-v3.7.2.min.css';
     </style>
+
   </head>
 
   <body id='main_display' class='claro'>
 
     <span id="http://stackoverflow.com/questions/20828799/creating-a-splash-page-in-html5"></span>
-    <div id='splash' style='display: block;'>
+    <div id='splash'>
       <div align='center'>
         <br />
         <h1>Avida-ED 4.0.31 Beta Testing is loading . . .</h1>
@@ -2043,25 +2044,7 @@
     <span class='notSeen' id='o______________________________________put_some_scripts_here_to_load_main_page_faster___'></span>    
     <!-- yemi: import jQuery: -->
     <!-- diane noted that separate jquery scource for dragulaDnd.js because, -->
-    <!-- diane did not explain the require statement in avidaED.js -->
-    <script type="text/javascript">
-  //------------------------------------------------------------------------------ remove splash screen a few seconds --
-  setTimeout(function() {
-  // turn off splash screen after delay
-        document.getElementById("splash").style.display="none";
-        //$('#splash').remove(); //hides splash screen.
-        console.log('index: delay 2000 milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-        // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-        // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-        // to combine the forward and reverse gif.
-        document.getElementById("appReloadModelID").style.display="none";
-  //end turn off splash screen
-  }, 2000); // 3000 milliseconds = 3 seconds
-
-  // 
-  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
-    </script>
-    
+    <!-- diane did not explain the require statement in avidaED.js -->    
     
     <script src="lib/jquery-v3.4.1.min.js"></script>
     <script type="text/javascript" src="lib/dragula/dragula-v3.7.2.min.js"></script> 
@@ -2091,7 +2074,30 @@
     <script type='text/javascript' src='globals.js'></script>
     <script type='text/javascript' src='placeParent.js'></script>
     <script type='text/javascript' src='utilities.js'></script>
-    <script type='text/javascript' src='avidaED.js'></script>
     <script type="text/javascript" src="dragulaDnd.js"></script>
+    <script type='text/javascript' src='avidaED.js'></script>
+    
+    <script type="text/javascript">
+  //------------------------------------------------------------------------------ remove splash screen a few seconds --
+  // gets an error message. claims document.getElementById("splash") is null unless the JQuery ready function is used. 
+  // 
+  jQuery(document).ready(function(){
+    setTimeout(function() {
+    // turn off splash screen after delay
+          var domSplash = document.getElementById("splash");
+          console.log('av.ui.delay =', av.ui.delay, '; domSplash is', domSplash);
+          domSplash.style.display="none";
+          console.log('index: delay ' + av.ui.delay + ' milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+          // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
+          // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
+          // to combine the forward and reverse gif.
+          document.getElementById("appReloadModelID").style.display="none";
+    //end turn off splash screen
+    }, av.ui.delay); // 3000 milliseconds = 3 seconds
+  });
+  // 
+  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
+    </script>
+
   </body>
 </html>

@@ -7,6 +7,35 @@ var av = av || {};  //incase av already exists
 //console.log('start of globals on 2021_310_04:22 Thurs');
 console.log('start of globals on 2023_416_Sun');
 
+av.ui = {};  //user interface functions and variables
+av.ui.delay = 500;
+av.ui.sendEmailFlag = true;
+av.ui.popStatFlag = true;  //flag that determines if the stats panel is visible.
+av.ui.orgStatFlag = true;  //flag that determines if the stats panel is visible.
+av.ui.orgInfoHolderMinWidth = 250; //need to cross check with orgInfoHolder in avidaEdEco.css
+av.ui.orgInfo = 'details';   //settings is the other option
+av.ui.beginFlag = true;
+av.ui.oneUpdateFlag = false;
+av.ui.lftSidePnlShowing = true;
+av.ui.version = '4.0.20 Beta';
+
+av.ui.page = 'populationBlock';
+av.ui.subpage = 'Data';
+av.ui.autoStopFlag = false;
+av.ui.autoStopValue = 987654321;
+//used in adjusting size of areas on population page
+av.ui.gridHolderSideBuffer = 0;
+av.ui.popGridCtlWdMin = 380;   //was 430
+av.ui.rightInfoHolderMinWd = 338;
+av.ui.navColIdMinWd = 152;
+
+//not really ui, but not sure where to put them
+av.ui.num = 0;   //tenporary holder for a number;
+av.ui.numTxt = '';
+
+av.ui.loadOK = false;  //av.ui.loadOK is set true when the application has been loaded.
+av.ui.showOutlineFlag = false;
+
 Number.prototype.pad = function(size) {
   var ss = String(this);
   while (ss.length < (size || 2)) {ss = "0" + ss;}
@@ -93,6 +122,7 @@ av.aww.uiWorker = null;
 av.msg = {}; //holds functions to send messages between the ui and Avida (web worker)
 av.msg.uiReqestedReset = false;
 av.msg.setupType = 'normal';
+av.msg.avidaReady = false;
 
 //http://stackoverflow.com/questions/4565112/javascript-how-to-find-out-if-the-user-browser-is-chrome
 // please note,
@@ -101,36 +131,9 @@ av.msg.setupType = 'normal';
 // and new IE Edge outputs to true now for window.chrome
 // so use the below updated condition
 
-av.ui = {};  //user interface functions and variables
-av.ui.sendEmailFlag = true;
-av.ui.popStatFlag = true;  //flag that determines if the stats panel is visible.
-av.ui.orgStatFlag = true;  //flag that determines if the stats panel is visible.
-av.ui.orgInfoHolderMinWidth = 250; //need to cross check with orgInfoHolder in avidaEdEco.css
-av.ui.orgInfo = 'details';   //settings is the other option
-av.ui.beginFlag = true;
-av.ui.oneUpdateFlag = false;
-av.ui.lftSidePnlShowing = true;
-av.ui.version = '4.0.20 Beta';
 av.debug.log = '';
 av.debug.log = '--hed: message and error log: Version:' + av.ui.version;
 av.debug.triggered = 'unknown';
-
-av.ui.page = 'populationBlock';
-av.ui.subpage = 'Data';
-av.ui.autoStopFlag = false;
-av.ui.autoStopValue = 987654321;
-//used in adjusting size of areas on population page
-av.ui.gridHolderSideBuffer = 0;
-av.ui.popGridCtlWdMin = 380;   //was 430
-av.ui.rightInfoHolderMinWd = 338;
-av.ui.navColIdMinWd = 152;
-
-//not really ui, but not sure where to put them
-av.ui.num = 0;   //tenporary holder for a number;
-av.ui.numTxt = '';
-av.msg.avidaReady = false;
-av.ui.loadOK = false;  //av.ui.loadOK is set true when the application has been loaded.
-av.ui.showOutlineFlag = false;
 
 //----------------------------------------------- finding the browser and opperating system ----------------------------
 //http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
