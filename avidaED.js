@@ -195,7 +195,9 @@
 // - - open first.
 //
 // Avida-ED 4.0.31 Beta
-// - turned splash screen back on because setup on population page looks awful. 
+// - turned splash screen back on because setup on population page looks awful.
+// - comment out "setTimeout(function() {" in index.html because of document element still null
+// - turn on splash screen after return from loading freezer file in avidaED.js 
 // 
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
