@@ -2081,20 +2081,20 @@
   //------------------------------------------------------------------------------ remove splash screen a few seconds --
   // gets an error message. claims document.getElementById("splash") is null unless the JQuery ready function is used. 
   // 
-  jQuery(document).ready(function(){
+//  jQuery(document).ready(function(){
 //    setTimeout(function() {
     // turn off splash screen after delay
-          var domSplash = document.getElementById("splash");
-          console.log('av.ui.delay =', av.ui.delay, '; domSplash is', domSplash);
-          domSplash.style.display="none";
-          console.log('index: delay ' + av.ui.delay + ' milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-          // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-          // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-          // to combine the forward and reverse gif.
-          document.getElementById("appReloadModelID").style.display="none";
+    //      var domSplash = document.getElementById("splash");
+    //      console.log('av.ui.delay =', av.ui.delay, '; domSplash is', domSplash);
+    //      domSplash.style.display="none";
+    //      console.log('index: delay ' + av.ui.delay + ' milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+    //      // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
+    //      // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
+    //      // to combine the forward and reverse gif.
+    //      document.getElementById("appReloadModelID").style.display="none";
     //end turn off splash screen
 //    }, av.ui.delay); // 3000 milliseconds = 3 seconds
-  });
+//  });
   // 
   //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
     </script>
