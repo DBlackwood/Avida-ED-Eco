@@ -17,6 +17,7 @@
     av.dom.mnHpDebug = document.getElementById('mnHpDebug');
     av.dom.mnDebug = document.getElementById('mnDebug');
 
+    av.dom.splash =  document.getElementById('splash');
     //Header Row: other items
     av.dom.userErrorMsg= document.getElementById('userErrorMsg');
     

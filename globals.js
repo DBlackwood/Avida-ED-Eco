@@ -8,7 +8,7 @@ var av = av || {};  //incase av already exists
 console.log('start of globals on 2023_416_Sun');
 
 av.ui = {};  //user interface functions and variables
-av.ui.delay = 500;
+av.ui.delay = 55000;
 av.ui.sendEmailFlag = true;
 av.ui.popStatFlag = true;  //flag that determines if the stats panel is visible.
 av.ui.orgStatFlag = true;  //flag that determines if the stats panel is visible.

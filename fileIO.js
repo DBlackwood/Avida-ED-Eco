@@ -101,6 +101,9 @@
 
     av.fzr.saveUpdateState('default');
     av.fzr.wsNameMsg = 'Default';
+    if (loadConfigFlag) {
+      console.log('loadConfigFlag is', loadConfigFlag, '; at end of av.fio.readZipWS');
+    }
   };
   /*----------------------------------------------------------------------------------------- end of av.fio.readZipWS --*/
 

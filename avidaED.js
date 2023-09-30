@@ -2372,7 +2372,9 @@ av.ui.feedback = function(){
   // need to change how loadConfig worrks
 
   // if (av.dbg.flg.root) { console.log('Root: before calling av.fio.readZipWS ---------------'); }
-  av.fio.readZipWS(av.fio.defaultFname, true); 
+  av.fio.readZipWS(av.fio.defaultFname, true);
+  console.log('= = = = = = = = = = = = = = = = = = = = = = = = = = = after av.fio.readZipWS(av.fio.defaultFname, true);');
+  av.dom.splash.style.display="none";
 
   //Need to get @default (the condents of folder c0) into the active config field. 
 
