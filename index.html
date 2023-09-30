@@ -448,275 +448,13 @@
         <div id='popInfoVert'>
           <div id='popInfoTabHolder' class='tabHolderHide'>
             <div class="tab">
-              <button class="tablinks active" id="statsTab" onclick="av.ptd.processTab(event, 'popStatsBlock')">Stats</button>
-              <button class="tablinks" id="setupTab" onclick="av.ptd.processTab(event, 'setupBlock')">Setup</button>
+              <button class="tablinks active" id="setupTab" onclick="av.ptd.processTab(event, 'setupBlock')">Setup</button>
+              <button class="tablinks" id="statsTab" onclick="av.ptd.processTab(event, 'popStatsBlock')">Stats</button>
               <button class="tablinks" id="testTab" onclick="av.ptd.processTab(event, 'testSetupBlock')">Test Setup</button>
             </div>
           </div>
           <div id='labInfoHolder' class='labInfoHoldCls'>  
-            <div id='popStatsBlock' class="labInfoClass labInfoFlex"> 
-              <div id='popStatHolder'>
-                <div id='popStatistics'>
-                  <div id='selOrgType'>
-                    <div class='popStatsTitle'>
-                      <span id='sotTitle'>Selected Organism Type</span>&nbsp;&nbsp;<div id='sotColorBox'></div>
-                    </div>
-                    <table id='sotTopTbID' class='sotTopTbCls'>
-                      <tbody>
-                        <tr>
-                          <td><div class='sotL'>Name:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='nameLabel'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotL'>Fitness:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='fitLabel'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotL'>Energy Acq. Rate:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='energyAcqRateLabel'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotL'>Offspring Cost:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='offspringCostLabel'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotL'>Age (updates):&nbsp;</div></td>
-                          <td><div class='sotR'><label id='ageLabel'></label>&nbsp;&nbsp;&nbsp;</div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotL'>Ancestor:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='ancestorLabel'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class='sotL'>Viable:&nbsp;</div></td>
-                          <td><div class='sotR'><label id='viableLabel'></label></div></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    
-                    <table id='sotBotTbCls' class='sotBotTbCls' style="background: white;">
-                      <tbody>
-                        <tr>
-                          <th><div id='sotFun' class='colTitle'>Function&nbsp;&nbsp;</div></th>
-                          <th><div id='sotTimes' class='colTitle'>Performed</div></th>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='notLabel'>NOT</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='notTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='nanLabel'>NAN</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='nanTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='andLabel'>AND</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='andTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='ornLabel'>ORN</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='ornTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='oroLabel'>ORO</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='oroTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='antLabel' onclick="av.ui.toggleDebugMenu()">ANT</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='antTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='norLabel'>NOR</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='norTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='xorLabel' onclick="av.ui.toggleResourceData('xorLabel')">XOR</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='xorTime'></label></div></td>
-                        </tr>
-                        <tr>
-                          <td><div class='sotFn'><label id='equLabel'>EQU</label></div></td>
-                          <td><div class='sotNumDoFn'><label id='equTime'></label></div></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <label id='dnaLabel'></label>
-                  </div><span id='selOrgType_end' class='display_none'></span>
-                 <div class='dragbar' id="dragbarPopStats"></div> <!-- in right side of population page -->
-
-                  <div id='popStats4grid'>
-                    <div class='popStatsTitle'>
-                      <label id='popStat'>Population Statistics</label>
-                    </div>
-                    <div class='psTopTbIDHold'>
-                      <table id='psTopTbID' class='psTopTbCls'>
-                        <tbody>
-                        <colgroup><col class='popsTopTblcol1'><col class='popsTopTblcol2'></colgroup>
-                          <tr>
-                            <td><div class='sotL'>Size (# of organisms):&nbsp;</div></td>
-                            <td><div class='sotR'><label id='popSizeLabel'>&nbsp;&nbsp;&nbsp;</label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'>Avg. Fitness:&nbsp;</div></td>
-                            <td><div class='sotR'><label id='aFitLabel'></label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'>Avg. Energy Acq. Rate:&nbsp;</div></td>
-                            <td><div class='sotR'><label id='aEnergyAcqRateLabel'></label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'>Avg. Offspring Cost:&nbsp;</div></td>
-                            <td><div class='sotR'><label id='aOffspringCostLabel'></label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'>Avg. Age (updates):&nbsp;</div></td>
-                            <td><div class='sotR'><label id='aAgeLabel'></label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'># Ancestor(s) at start:&nbsp;</div></td>
-                            <td><div class='sotR'><label id='parentNumLabel'></label>&nbsp;</div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='sotL'># of viable organisms:&nbsp;</div></td>
-                            <td><div class='sotR'><label id='viableNumLabel'></label>&nbsp;</div></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div id='psBotTbIdHold' style="background: white;">
-                      <table id='psBotTbId' class='psBotTbCls'>
-                        <colgroup><col class='popsBotTblcol1'><col class='popsBotTblcol2'><col class='popsBotTblcol3'></colgroup>
-                        <tbody>
-                          <tr>
-                            <th><div id='popStatsFunction' class='colTitle'>Function&nbsp;&nbsp;</div></th>
-                            <th colspan='2'><div id='psNumOrg' class='colTitle'># of Organisms</div></th>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='notButton' class='bitButtonOff'>NOT</button></div></td>
-                            <td><div class='popFnNum'><label id='notPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit0' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='nanButton' class='bitButtonOff'>NAN</button></div></td>
-                            <td><div class='popFnNum'><label id='nanPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit1' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='andButton' class='bitButtonOff'>AND</button></div></td>
-                            <td><div class='popFnNum'><label id='andPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit2' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='ornButton' class='bitButtonOff'>ORN</button></div></td>
-                            <td><div class='popFnNum'><label id='ornPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit3' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='oroButton' class='bitButtonOff'>ORO</button></div></td>
-                            <td><div class='popFnNum'><label id='oroPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit4' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='antButton' class='bitButtonOff'>ANT</button></div></td>
-                            <td><div class='popFnNum'><label id='antPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit5' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='norButton' class='bitButtonOff'>NOR</button></div></td>
-                            <td><div class='popFnNum'><label id='norPop'></label></div></td>
-                            <td><div style='text-align: center'><label id='numLog' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='xorButton' class='bitButtonOff'>XOR</button></div></td>
-                            <td><div class='popFnNum'><label id='xorPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit6' /></div></td>
-                          </tr>
-                          <tr>
-                            <td><div class='popButCls'><button id='equButton' class='bitButtonOff'>EQU</button></div></td>
-                            <td><div class='popFnNum'><label id='equPop'></label></div></td>
-                            <td><div class='noWrapTitle'><label id='logTit7' /></div></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div> <span id='psBotTbIdHold_end' class='display_none'></span>
-                  </div> <span id='popStats4grid_end'></span>
-                </div> <span id='popStatistics_id' class='display_none'></span>
-              </div><span id='popStatHolder_end' class='display_none'></span>
-
-              <div id='resrceDataHolder'>
-                <div id='resourceDataGrid' class='sugarGlobal-gridContainer'>
-                  <div id='sgrTop' class='sugarTsk'>Resource</div><div id="mxTop" class='mxTask'>Highest</div><div id="cellTop" class='cellTask'>Type</div><div id='totTop' class='totTask'>Amount</div>
-                  <div id='sgrNot' class='sugarTsk'>NOT</div><div id="mxNot" class='mxTask'>not</div><div id="cellNot" class='cellTask'>NOt</div><div id="totNot" class='totTask'>Not</div>
-                  <div id='sgrNan' class='sugarTsk'>NAN</div><div id="mxNan" class='mxTask'>nan</div><div id="cellNan" class='cellTask'>NAn</div><div id="totNan" class='totTask'>naN</div>
-                  <div id='sgrAnd' class='sugarTsk'>AND</div><div id="mxAnd" class='mxTask'>and</div><div id="cellAnd" class='cellTask'>ANd</div><div id="totAnd" class='totTask'>anD</div>
-                  <div id='sgrOrn' class='sugarTsk'>ORN</div><div id="mxOrn" class='mxTask'>orn</div><div id="cellOrn" class='cellTask'>ORn</div><div id="totOrn" class='totTask'>orN</div>
-                  <div id='sgrOro' class='sugarTsk'>ORO</div><div id="mxOro" class='mxTask'>oro</div><div id="cellOro" class='cellTask'>ORo</div><div id="totOro" class='totTask'>orO</div>
-                  <div id='sgrAnt' class='sugarTsk'>ANT</div><div id="mxAnt" class='mxTask'>ant</div><div id="cellAnt" class='cellTask'>ANt</div><div id="totAnt" class='totTask'>anT</div>
-                  <div id='sgrNor' class='sugarTsk'>NOR</div><div id="mxNor" class='mxTask'>nor</div><div id="cellNor" class='cellTask'>NOr</div><div id="totNor" class='totTask'>noR</div>
-                  <div id='sgrXor' class='sugarTsk'>XOR</div><div id="mxXor" class='mxTask'>xor</div><div id="cellXor" class='cellTask'>XOr</div><div id="totXor" class='totTask'>xoR</div>
-                  <div id='sgrEqu' class='sugarTsk'>EQU</div><div id="mxEqu" class='mxTask'>equ</div><div id="cellEqu" class='cellTask'>EQu</div><div id="totEqu" class='totTask'>eqU</div>
-                </div>
-              </div>
-
-              <div id='popChrtHolder'>
-                <div id='popChart'></div>
-                <div id='popChartDiv'></div>
-              </div>
-              
-             <div id='popChrtCntrlHldr'>
-                <div id='popChrtlftYaxHldr'>
-                  <label id='popChrtlftYaxLbl'>&nbsp;Lft Y-axis
-                    <select  id='popChrtLftYaxis' onchange='av.pch.popChrtYaxisChangeFn(this)'>
-                      <option value='Average Fitness' selected>Ave. Fitness</option>
-                      <option value='Average Offspring Cost'>Ave. Offspring Cost</option>
-                      <option value='Average Energy Acq. Rate'>Ave. Energy Acq. Rate</option>
-                      <option value='Number of Organisms'># of Organisms</option>
-                      <option value='Number Viable'># Viable</option>
-                      <option value='Number by Ancestor'># By Ancestor</option>
-                      <option value='None'>None</option>
-                    </select>
-                    </label>
-                </div><span id='popChrtlftYaxHldr_end' class='display_none'></span>
-                <div id='popChrtRitYaxHldr'>
-                  <label id='popChrtRitYaxLbl'>Rt Y-axis
-                    <select  id='popChrtRitYaxis' onchange='av.pch.popChrtYaxisChangeFn(this)'>
-                      <option id='popChrtRitYNone' value='None'>None</option>
-                      <option id='popChrtRitYResources' value='Resources'>Resources</option>
-                      <option id='popChrtRitYmomsOnly' value='Moms Only'>Moms Only</option>
-                    </select>
-                  </label>
-                </div>
-               </div>
-
-              <div id='pauseOptions'>
-                <p id='pausePrefix'>&nbsp;Pause Run at</p>
-                <select id='itemDone1st' onchange='av.ptd.sgr1stSlctFn("onchange")'>
-                  <option value='task' selected>any task</option>
-                  <option value='not'>NOT</option>
-                  <option value='nan'>NAN</option>
-                  <option value='and'>AND</option>
-                  <option value='orn'>ORN</option>
-                  <option value='oro'>ORO</option>
-                  <option value='ant'>ANT</option>
-                  <option value='nor'>NOR</option>
-                  <option value='xor'>XOR</option>
-                  <option value='equ'>EQU</option>
-                  <option value='picked' disabled>selected</option>
-                </select>
-                <p id='pauseMidText'></p>
-                <span id='pauseCriteriaHolder'>
-                  <select id='pauseCriteria' onchange='av.ptd.pauseSlctFn(this)'>
-                    <option value='update' selected>Update</option>
-                    <option value='firstDone'>appears</option>
-                  </select>
-                </span>
-                <input id='autoPauseNum' type='text' value='1000'>
-                <div id='pauseChkTxt'> when checked </div>
-                <input id="autoPauseCheck" type="checkbox" class="blk_wite_checkbox"> </label>
-              </div>
-              <div id='scrollBarSpace'>&nbsp;</div>
-               
-            </div>  <span id='popStatsBlock_end' class='display_none'></span>
-
+            
             <div id='setupBlock' class="labInfoClass labInfoFlex">
               <form id='setupForm'>
                 <div id='environmentSettingTitle'>Environmental Settings</div>
@@ -1116,6 +854,269 @@
               </form>
             </div><span id='setupBlock_end' class='display_none'></span>
 
+            <div id='popStatsBlock' class="labInfoClass labInfoFlex"> 
+              <div id='popStatHolder'>
+                <div id='popStatistics'>
+                  <div id='selOrgType'>
+                    <div class='popStatsTitle'>
+                      <span id='sotTitle'>Selected Organism Type</span>&nbsp;&nbsp;<div id='sotColorBox'></div>
+                    </div>
+                    <table id='sotTopTbID' class='sotTopTbCls'>
+                      <tbody>
+                        <tr>
+                          <td><div class='sotL'>Name:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='nameLabel'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotL'>Fitness:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='fitLabel'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotL'>Energy Acq. Rate:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='energyAcqRateLabel'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotL'>Offspring Cost:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='offspringCostLabel'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotL'>Age (updates):&nbsp;</div></td>
+                          <td><div class='sotR'><label id='ageLabel'></label>&nbsp;&nbsp;&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotL'>Ancestor:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='ancestorLabel'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class='sotL'>Viable:&nbsp;</div></td>
+                          <td><div class='sotR'><label id='viableLabel'></label></div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    <table id='sotBotTbCls' class='sotBotTbCls' style="background: white;">
+                      <tbody>
+                        <tr>
+                          <th><div id='sotFun' class='colTitle'>Function&nbsp;&nbsp;</div></th>
+                          <th><div id='sotTimes' class='colTitle'>Performed</div></th>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='notLabel'>NOT</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='notTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='nanLabel'>NAN</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='nanTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='andLabel'>AND</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='andTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='ornLabel'>ORN</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='ornTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='oroLabel'>ORO</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='oroTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='antLabel' onclick="av.ui.toggleDebugMenu()">ANT</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='antTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='norLabel'>NOR</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='norTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='xorLabel' onclick="av.ui.toggleResourceData('xorLabel')">XOR</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='xorTime'></label></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class='sotFn'><label id='equLabel'>EQU</label></div></td>
+                          <td><div class='sotNumDoFn'><label id='equTime'></label></div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <label id='dnaLabel'></label>
+                  </div><span id='selOrgType_end' class='display_none'></span>
+                 <div class='dragbar' id="dragbarPopStats"></div> <!-- in right side of population page -->
+
+                  <div id='popStats4grid'>
+                    <div class='popStatsTitle'>
+                      <label id='popStat'>Population Statistics</label>
+                    </div>
+                    <div class='psTopTbIDHold'>
+                      <table id='psTopTbID' class='psTopTbCls'>
+                        <tbody>
+                        <colgroup><col class='popsTopTblcol1'><col class='popsTopTblcol2'></colgroup>
+                          <tr>
+                            <td><div class='sotL'>Size (# of organisms):&nbsp;</div></td>
+                            <td><div class='sotR'><label id='popSizeLabel'>&nbsp;&nbsp;&nbsp;</label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'>Avg. Fitness:&nbsp;</div></td>
+                            <td><div class='sotR'><label id='aFitLabel'></label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'>Avg. Energy Acq. Rate:&nbsp;</div></td>
+                            <td><div class='sotR'><label id='aEnergyAcqRateLabel'></label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'>Avg. Offspring Cost:&nbsp;</div></td>
+                            <td><div class='sotR'><label id='aOffspringCostLabel'></label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'>Avg. Age (updates):&nbsp;</div></td>
+                            <td><div class='sotR'><label id='aAgeLabel'></label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'># Ancestor(s) at start:&nbsp;</div></td>
+                            <td><div class='sotR'><label id='parentNumLabel'></label>&nbsp;</div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='sotL'># of viable organisms:&nbsp;</div></td>
+                            <td><div class='sotR'><label id='viableNumLabel'></label>&nbsp;</div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div id='psBotTbIdHold' style="background: white;">
+                      <table id='psBotTbId' class='psBotTbCls'>
+                        <colgroup><col class='popsBotTblcol1'><col class='popsBotTblcol2'><col class='popsBotTblcol3'></colgroup>
+                        <tbody>
+                          <tr>
+                            <th><div id='popStatsFunction' class='colTitle'>Function&nbsp;&nbsp;</div></th>
+                            <th colspan='2'><div id='psNumOrg' class='colTitle'># of Organisms</div></th>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='notButton' class='bitButtonOff'>NOT</button></div></td>
+                            <td><div class='popFnNum'><label id='notPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit0' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='nanButton' class='bitButtonOff'>NAN</button></div></td>
+                            <td><div class='popFnNum'><label id='nanPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit1' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='andButton' class='bitButtonOff'>AND</button></div></td>
+                            <td><div class='popFnNum'><label id='andPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit2' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='ornButton' class='bitButtonOff'>ORN</button></div></td>
+                            <td><div class='popFnNum'><label id='ornPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit3' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='oroButton' class='bitButtonOff'>ORO</button></div></td>
+                            <td><div class='popFnNum'><label id='oroPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit4' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='antButton' class='bitButtonOff'>ANT</button></div></td>
+                            <td><div class='popFnNum'><label id='antPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit5' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='norButton' class='bitButtonOff'>NOR</button></div></td>
+                            <td><div class='popFnNum'><label id='norPop'></label></div></td>
+                            <td><div style='text-align: center'><label id='numLog' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='xorButton' class='bitButtonOff'>XOR</button></div></td>
+                            <td><div class='popFnNum'><label id='xorPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit6' /></div></td>
+                          </tr>
+                          <tr>
+                            <td><div class='popButCls'><button id='equButton' class='bitButtonOff'>EQU</button></div></td>
+                            <td><div class='popFnNum'><label id='equPop'></label></div></td>
+                            <td><div class='noWrapTitle'><label id='logTit7' /></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> <span id='psBotTbIdHold_end' class='display_none'></span>
+                  </div> <span id='popStats4grid_end'></span>
+                </div> <span id='popStatistics_id' class='display_none'></span>
+              </div><span id='popStatHolder_end' class='display_none'></span>
+
+              <div id='resrceDataHolder'>
+                <div id='resourceDataGrid' class='sugarGlobal-gridContainer'>
+                  <div id='sgrTop' class='sugarTsk'>Resource</div><div id="mxTop" class='mxTask'>Highest</div><div id="cellTop" class='cellTask'>Type</div><div id='totTop' class='totTask'>Amount</div>
+                  <div id='sgrNot' class='sugarTsk'>NOT</div><div id="mxNot" class='mxTask'>not</div><div id="cellNot" class='cellTask'>NOt</div><div id="totNot" class='totTask'>Not</div>
+                  <div id='sgrNan' class='sugarTsk'>NAN</div><div id="mxNan" class='mxTask'>nan</div><div id="cellNan" class='cellTask'>NAn</div><div id="totNan" class='totTask'>naN</div>
+                  <div id='sgrAnd' class='sugarTsk'>AND</div><div id="mxAnd" class='mxTask'>and</div><div id="cellAnd" class='cellTask'>ANd</div><div id="totAnd" class='totTask'>anD</div>
+                  <div id='sgrOrn' class='sugarTsk'>ORN</div><div id="mxOrn" class='mxTask'>orn</div><div id="cellOrn" class='cellTask'>ORn</div><div id="totOrn" class='totTask'>orN</div>
+                  <div id='sgrOro' class='sugarTsk'>ORO</div><div id="mxOro" class='mxTask'>oro</div><div id="cellOro" class='cellTask'>ORo</div><div id="totOro" class='totTask'>orO</div>
+                  <div id='sgrAnt' class='sugarTsk'>ANT</div><div id="mxAnt" class='mxTask'>ant</div><div id="cellAnt" class='cellTask'>ANt</div><div id="totAnt" class='totTask'>anT</div>
+                  <div id='sgrNor' class='sugarTsk'>NOR</div><div id="mxNor" class='mxTask'>nor</div><div id="cellNor" class='cellTask'>NOr</div><div id="totNor" class='totTask'>noR</div>
+                  <div id='sgrXor' class='sugarTsk'>XOR</div><div id="mxXor" class='mxTask'>xor</div><div id="cellXor" class='cellTask'>XOr</div><div id="totXor" class='totTask'>xoR</div>
+                  <div id='sgrEqu' class='sugarTsk'>EQU</div><div id="mxEqu" class='mxTask'>equ</div><div id="cellEqu" class='cellTask'>EQu</div><div id="totEqu" class='totTask'>eqU</div>
+                </div>
+              </div>
+
+              <div id='popChrtHolder'>
+                <div id='popChart'></div>
+                <div id='popChartDiv'></div>
+              </div>
+              
+             <div id='popChrtCntrlHldr'>
+                <div id='popChrtlftYaxHldr'>
+                  <label id='popChrtlftYaxLbl'>&nbsp;Lft Y-axis
+                    <select  id='popChrtLftYaxis' onchange='av.pch.popChrtYaxisChangeFn(this)'>
+                      <option value='Average Fitness' selected>Ave. Fitness</option>
+                      <option value='Average Offspring Cost'>Ave. Offspring Cost</option>
+                      <option value='Average Energy Acq. Rate'>Ave. Energy Acq. Rate</option>
+                      <option value='Number of Organisms'># of Organisms</option>
+                      <option value='Number Viable'># Viable</option>
+                      <option value='Number by Ancestor'># By Ancestor</option>
+                      <option value='None'>None</option>
+                    </select>
+                    </label>
+                </div><span id='popChrtlftYaxHldr_end' class='display_none'></span>
+                <div id='popChrtRitYaxHldr'>
+                  <label id='popChrtRitYaxLbl'>Rt Y-axis
+                    <select  id='popChrtRitYaxis' onchange='av.pch.popChrtYaxisChangeFn(this)'>
+                      <option id='popChrtRitYNone' value='None'>None</option>
+                      <option id='popChrtRitYResources' value='Resources'>Resources</option>
+                      <option id='popChrtRitYmomsOnly' value='Moms Only'>Moms Only</option>
+                    </select>
+                  </label>
+                </div>
+               </div>
+
+              <div id='pauseOptions'>
+                <p id='pausePrefix'>&nbsp;Pause Run at</p>
+                <select id='itemDone1st' onchange='av.ptd.sgr1stSlctFn("onchange")'>
+                  <option value='task' selected>any task</option>
+                  <option value='not'>NOT</option>
+                  <option value='nan'>NAN</option>
+                  <option value='and'>AND</option>
+                  <option value='orn'>ORN</option>
+                  <option value='oro'>ORO</option>
+                  <option value='ant'>ANT</option>
+                  <option value='nor'>NOR</option>
+                  <option value='xor'>XOR</option>
+                  <option value='equ'>EQU</option>
+                  <option value='picked' disabled>selected</option>
+                </select>
+                <p id='pauseMidText'></p>
+                <span id='pauseCriteriaHolder'>
+                  <select id='pauseCriteria' onchange='av.ptd.pauseSlctFn(this)'>
+                    <option value='update' selected>Update</option>
+                    <option value='firstDone'>appears</option>
+                  </select>
+                </span>
+                <input id='autoPauseNum' type='text' value='1000'>
+                <div id='pauseChkTxt'> when checked </div>
+                <input id="autoPauseCheck" type="checkbox" class="blk_wite_checkbox"> </label>
+              </div>
+              <div id='scrollBarSpace'>&nbsp;</div>
+               
+            </div>  <span id='popStatsBlock_end' class='display_none'></span>
+            
             <div id="testSetupBlock" class="labInfoClass labInfoFlex">
               <form id="testSetupForm">
                 Test Setup section - this section will be debug only
@@ -2049,13 +2050,13 @@
   // turn off splash screen after delay
         document.getElementById("splash").style.display="none";
         //$('#splash').remove(); //hides splash screen.
-        console.log('index: delay 0 milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
+        console.log('index: delay 2000 milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
         // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
         // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
         // to combine the forward and reverse gif.
         document.getElementById("appReloadModelID").style.display="none";
   //end turn off splash screen
-  }, 0); // 3000 milliseconds = 3 seconds
+  }, 2000); // 3000 milliseconds = 3 seconds
 
   // 
   //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --

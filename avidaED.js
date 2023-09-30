@@ -190,7 +190,9 @@
 // - moved splash screen function to turn off after 3 seconds to bottom of index.html to avoid eror.
 // - then Jay convinced Rob to NOT include the splash screen. 
 // - removed hidden button to work no advanced geometry mode within 'Environemtnal Settings'. 
-// - - look at #geometryHideButton in avidaEDEco.css to switch back and work on spatial environment. 
+// - - look at #geometryHideButton in avidaEDEco.css to switch back and work on spatial environment.
+// - - moved html for Setup on Popupulation page to be before that of Stats since the default is now to have Stats
+// - - open first.
 //
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
