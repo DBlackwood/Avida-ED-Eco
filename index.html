@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avida-ED 4.0.31</title>
+    <title>Avida-ED 4.0.32</title>
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <style>
@@ -40,7 +40,7 @@
     <div id='splash'>
       <div align='center'>
         <br />
-        <h1>Avida-ED 4.0.31 Beta Testing is loading . . .</h1>
+        <h1 style="display:none">Avida-ED 4.0.32 Beta Testing is loading . . .</h1>
         <img src='images/Avida-ED-logo.png' />&nbsp;&nbsp;&nbsp;&nbsp;
         <img src='images/avidaGrow_15.gif' />
       </div>
@@ -1589,7 +1589,7 @@
           <span class='aboutAvidaEDcloseHldr'>
             <button id='aboutAvidaEDcloseButton' onclick='av.ui.aboutAvidaED_Close();'>Close</button>
           </span>
-          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.31 Beta</h2>
+          <h2 id='aboutAvidaEDtitle'>Avida-ED 4.0.32 Beta</h2>
           <span class='aboutAvidaEDcloseHldr'>
           </span>
         </div>
@@ -2076,28 +2076,5 @@
     <script type='text/javascript' src='utilities.js'></script>
     <script type="text/javascript" src="dragulaDnd.js"></script>
     <script type='text/javascript' src='avidaED.js'></script>
-    
-    <script type="text/javascript">
-  //------------------------------------------------------------------------------ remove splash screen a few seconds --
-  // gets an error message. claims document.getElementById("splash") is null unless the JQuery ready function is used. 
-  // 
-//  jQuery(document).ready(function(){
-//    setTimeout(function() {
-    // turn off splash screen after delay
-    //      var domSplash = document.getElementById("splash");
-    //      console.log('av.ui.delay =', av.ui.delay, '; domSplash is', domSplash);
-    //      domSplash.style.display="none";
-    //      console.log('index: delay ' + av.ui.delay + ' milliseconds - - - - - - - - - - - - - - - - - - - - - - - Turn off splash screen');
-    //      // Worked on a better splash screen gif. Used licecap, an application on the Mac to record the gif.
-    //      // Then used http://gifmaker.me/reverser/ to make a gif in reverse time order. Then Wesley used gifsicle
-    //      // to combine the forward and reverse gif.
-    //      document.getElementById("appReloadModelID").style.display="none";
-    //end turn off splash screen
-//    }, av.ui.delay); // 3000 milliseconds = 3 seconds
-//  });
-  // 
-  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
-    </script>
-
   </body>
 </html>

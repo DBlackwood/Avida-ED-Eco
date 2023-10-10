@@ -8,7 +8,7 @@ var av = av || {};  //incase av already exists
 console.log('start of globals on 2023_416_Sun');
 
 av.ui = {};  //user interface functions and variables
-av.ui.delay = 9000;
+av.ui.desiredDelayFromPageLoadStart = 3000; // 3 seconds
 av.ui.sendEmailFlag = true;
 av.ui.popStatFlag = true;  //flag that determines if the stats panel is visible.
 av.ui.orgStatFlag = true;  //flag that determines if the stats panel is visible.
@@ -17,7 +17,7 @@ av.ui.orgInfo = 'details';   //settings is the other option
 av.ui.beginFlag = true;
 av.ui.oneUpdateFlag = false;
 av.ui.lftSidePnlShowing = true;
-av.ui.version = '4.0.20 Beta';
+av.ui.version = '4.0.20 Beta';  
 
 av.ui.page = 'populationBlock';
 av.ui.subpage = 'Data';

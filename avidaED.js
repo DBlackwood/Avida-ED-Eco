@@ -197,7 +197,10 @@
 // Avida-ED 4.0.31 Beta
 // - turned splash screen back on because setup on population page looks awful.
 // - comment out "setTimeout(function() {" in index.html because of document element still null
-// - turn on splash screen after return from loading freezer file in avidaED.js 
+// - turn off splash screen after return from loading freezer file in avidaED.js 
+// 
+// Avida-ED 4.0.32 Beta
+// - new splash screen turn off logic do that it stays on for a minium length of time. 
 // 
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
@@ -329,15 +332,15 @@ require([
   'use strict';
   if (av.dbg.flg.root) { console.log('before type of $'); }
   
+  //---------------------------------------------------------- show timeout message if avida webworker had not loaded --
   setTimeout(function () {
     if (!av.ui.loadOK) {
       //alert('Avida-ED failed to load, please try re-loading');
       document.getElementById('appReloadDialog').style.display = 'show';
     }
   }, 121000);
-
-  /********************************************************************************************************************/
   // if (av.dbg.flg.root) { console.log('Root: after splash screen Timeout code'); }
+  //----------------------------------------------- show message to reload avida if it has not loaded for 121 seconds --
 
   //---------------------------------------------------------------------------------------- check that jquery loaded --
   
@@ -2376,7 +2379,22 @@ av.ui.feedback = function(){
   // if (av.dbg.flg.root) { console.log('Root: before calling av.fio.readZipWS ---------------'); }
   av.fio.readZipWS(av.fio.defaultFname, true);
   console.log('= = = = = = = = = = = = = = = = = = = = = = = = = = = after av.fio.readZipWS(av.fio.defaultFname, true);');
-  av.dom.splash.style.display="none";
+ 
+  //----------------------------------------------------------------------------- close splash screen after set delay --
+  
+  let timeSincePageLoad = performance.now();
+
+  let actualDelayForSetTimeout = av.ui.desiredDelayFromPageLoadStart - timeSincePageLoad;
+
+  if (actualDelayForSetTimeout < 0) {
+      actualDelayForSetTimeout = 0; // If the desired time has already passed, execute immediately
+  }
+
+  setTimeout(function() {
+      console.log('~ ~ ~ ~ ~ desiredDelayFromPageLoadStart=', av.ui.desiredDelayFromPageLoadStart, '; timeSincePageLoad=', timeSincePageLoad);
+      console.log('performance.now =',performance.now(),'; actualDelayForSetTimeout=', actualDelayForSetTimeout);
+      av.dom.splash.style.display="none";
+  }, actualDelayForSetTimeout);
 
   //Need to get @default (the condents of folder c0) into the active config field. 
 
@@ -3049,7 +3067,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.31 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.32 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x
