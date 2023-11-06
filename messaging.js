@@ -760,7 +760,7 @@ av.msg.updatePopStats = function (msg) {
         //console.log('av.pch.dadFit=', av.pch.dadFit);
         //console.log('av.parents.name', av.parents.name);
         //console.log('msg.by_clade=', msg.by_clade);
-        //console.log('ii='+ii ,'; msg.by_clade['+av.parents.name[ii]+'].fitness=', msg.by_clade[av.parents.name[ii]].fitness);
+        //console.log('ii='+ii ,'; msg.by_clade['+av.parents.name[ii]+'].fitness=', msg.by_clade[av.parents.name[ii]].fitness);        
         av.pch.dadFit[av.parents.name[ii]][msg.update] = msg.by_clade[av.parents.name[ii]].fitness;
         av.pch.dadCst[av.parents.name[ii]][msg.update] = msg.by_clade[av.parents.name[ii]].gestation;
         av.pch.dadEar[av.parents.name[ii]][msg.update] = msg.by_clade[av.parents.name[ii]].metabolism;

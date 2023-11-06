@@ -2118,8 +2118,8 @@ av.ui.feedback = function(){
     };
     av.grd.gridWasCols = Number(av.dom.sizeCols.value);
     av.grd.gridWasRows = Number(av.dom.sizeRows.value);
-    //reset zoom power to 1
-    av.grd.zoomSlide.set('value', 1);
+    //reset zoom power to 1; zoom removed in version 4
+    //av.grd.zoomSlide.set('value', 1);
     av.parents.placeAncestors();
     //are any parents on the same cell?
     av.grd.cellConflict(av.grd.setupCols, av.grd.setupRows);
@@ -2150,8 +2150,8 @@ av.ui.feedback = function(){
     };
     av.grd.gridWasCols = Number(av.dom.sizeColTest.value);
     av.grd.gridWasRows = Number(av.dom.sizeRowTest.value);
-    //reset zoom power to 1
-    av.grd.zoomSlide.set('value', 1);
+//    reset zoom power to 1; zoom removed in version 4
+//    av.grd.zoomSlide.set('value', 1);
     av.parents.placeAncestors();
     //are any parents on the same cell?
     av.grd.cellConflict(av.grd.setupCols, av.grd.setupRows);
