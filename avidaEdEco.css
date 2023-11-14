@@ -163,7 +163,7 @@ html {
 
 /* --------------------------------------------------------------------------------------------- header row formating */
 
-/* in version 4.0.20 changing how I do headerRow from flex to grid, 
+/* was in version 4.0.20 changing how I do headerRow from flex to grid, 
  even as it is only one row. I think I can specify it better */
 
 #leftPnlBtnHolder { grid-area: leftPnlBtnHolder; }

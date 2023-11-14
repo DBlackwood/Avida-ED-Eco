@@ -205,6 +205,8 @@
 // Avida-ED 4.0.33 Beta
 // - put text back in splash screen. 
 // - fix errors related to mutation slide. 
+// - fix errors relatedd to lesson 4 that referenced a funciton no longer in use and 
+//   then did not update parent position when the grid size changed
 // 
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
@@ -3070,7 +3072,6 @@ av.ui.feedback = function(){
   av.dom.mnDebug.style.visibility = 'hidden';
   av.dom.mnDebug.style.display = 'none';
 
-  // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
     console.log('testing mode; set to false before public release for Avida-ED 4.0.33 Beta Testing. ');

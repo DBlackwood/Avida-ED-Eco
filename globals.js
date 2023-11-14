@@ -17,7 +17,7 @@ av.ui.orgInfo = 'details';   //settings is the other option
 av.ui.beginFlag = true;
 av.ui.oneUpdateFlag = false;
 av.ui.lftSidePnlShowing = true;
-av.ui.version = '4.0.20 Beta';  
+av.ui.version = '4.0.33 Beta';  
 
 av.ui.page = 'populationBlock';
 av.ui.subpage = 'Data';
