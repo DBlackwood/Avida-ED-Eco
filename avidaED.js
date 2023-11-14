@@ -202,6 +202,10 @@
 // Avida-ED 4.0.32 Beta
 // - new splash screen turn off logic do that it stays on for a minium length of time. 
 // 
+// Avida-ED 4.0.33 Beta
+// - put text back in splash screen. 
+// - fix errors related to mutation slide. 
+// 
 // Generic Notes -------------------------------------------------------------------------------------------------------
 //
 // [option]<alt>{go} to get library in the list for finder
@@ -525,7 +529,7 @@ require([
         av.msg.doOrgTrace('mouseup touchend kid organIcon');  //request new Organism Trace from Avida and draw that.
       } 
     }
-    console.log('av.mouse.Picked=', av.mouse.Picked, '; av.dnd.gridSelected=', av.dnd.gridSelected);
+    //console.log('av.mouse.Picked=', av.mouse.Picked, '; av.dnd.gridSelected=', av.dnd.gridSelected);
     av.mouse.Picked = '';
   });
 
@@ -2106,6 +2110,8 @@ av.ui.feedback = function(){
     av.dom.sizeRows.style.color = 'black';
     av.dom.sizeCells.style.color = 'black';
     //Linear scale the position for Ancestors added by hand;
+    console.log('Was: Cols; Rows:', av.grd.gridWasCols, av.grd.gridWasRows, '; Now Cols, Rows:', av.grd.setupCols, av.grd.setupRows);
+    console.log('av.parents=', av.parents);
     if (undefined != av.parents.handNdx) {
       var lngth = av.parents.handNdx.length;
       for (var ii = 0; ii < lngth; ii++) {
@@ -2127,7 +2133,7 @@ av.ui.feedback = function(){
   };
 
   /*-------------------------------------------------------------------------------------------- av.ptd.popSizeFnTest --*/
-  av.ptd.popSizeFnTest = function (from) {
+ /* av.ptd.popSizeFnTest = function (from) {
     av.grd.setupCols = Number(av.dom.sizeColTest.value);
     av.grd.setupRows = Number(av.dom.sizeRowTest.value);
     //console.log(from, 'called av.ptd.popSizeFnTest: new col, row', av.grd.setupCols, av.grd.setupRows);
@@ -2157,7 +2163,7 @@ av.ui.feedback = function(){
     av.grd.cellConflict(av.grd.setupCols, av.grd.setupRows);
     av.grd.drawGridSetupFn('av.ptd.popSizeFn');
   };
-
+*/
 
   // no slider for muteTest
   //------------------------------------------------------------------------------------------ av.ptd.muteInpuTestChng --
@@ -3067,7 +3073,7 @@ av.ui.feedback = function(){
   // Avida-ED 4.0.20 Beta Testing fix this too. 
   //true for development; false for all production releases even in alpha testsing.  
   if (false) {
-    console.log('testing mode; set to false before public release for Avida-ED 4.0.32 Beta Testing. ');
+    console.log('testing mode; set to false before public release for Avida-ED 4.0.33 Beta Testing. ');
     av.ui.toggleResourceData('lastDone');   //now only turns grid resource value table on and off
     //
     //set mmDebug to hidden so that when toggle called it will show the development sections x

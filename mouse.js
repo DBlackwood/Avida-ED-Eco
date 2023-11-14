@@ -425,7 +425,7 @@
   av.mouse.arrowKeysOnGrid = function (event) {
     'use strict';
     var arrowkey = true;
-    console.log('document.activeElement', document.activeElement, document.activeElement.tagName);
+    //console.log('document.activeElement', document.activeElement, document.activeElement.tagName);
     if ('INPUT' != document.activeElement.tagName && 'TEXTAREA' != document.activeElement.tagName) {
       if (av.grd.flagSelected) {
         var moved = false;

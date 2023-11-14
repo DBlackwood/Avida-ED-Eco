@@ -86,7 +86,7 @@
       if (av.grd.mxFit < av.grd.msg.fitness.maxVal || ( av.grd.updateNum >av.grd.rescaleUpdateStart && (1 - av.grd.rescaleTolerance) * av.grd.mxFit > av.grd.msg.fitness.maxVal) ) {
         av.grd.mxFit = av.grd.mxFit + ((1 + av.grd.rescaleTolerance) * av.grd.msg.fitness.maxVal - av.grd.mxFit) / av.grd.rescaleTimeConstant;
         av.grd.reScaleFit = 'rescaling';
-        console.log('rescaling: av.grd.msg.fitness.maxVal=', av.grd.msg.fitness.maxVal);
+        //console.log('rescaling: av.grd.msg.fitness.maxVal=', av.grd.msg.fitness.maxVal);
       }
       else av.grd.reScaleFit = '';
 

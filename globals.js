@@ -77,7 +77,7 @@ av.dbg.flg.plt = false;  //analysis plot
 av.dbg.flg.pch = false;  //popChart and analysis
 av.dbg.flg.popSetup = false;
 av.dbg.flg.root = false;  //statements that look for failers when the code executes outside of functions
-av.dbg.flg.slt = true; // used to look at why using mn options deselects items in freezer
+av.dbg.flg.slt = false; // used to look at why using mn options deselects items in freezer
 
 av.debug.usr = ''; //working on log for user actions.
 

@@ -332,6 +332,7 @@
 //----------------------------------------------------------------------------------- av.ui.toggleDevelopmentDisplays --
 // opens items used in development that are not for the user to see. 
 av.ui.toggleDevelopmentDisplays = function () {
+  console.log('av.debug.development is', av.debug.development);
   if (av.debug.development) {
     var len, tsk, sub;
     var ndx2b = 0;

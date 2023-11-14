@@ -261,10 +261,10 @@ av.utl.log = function (base, num) {
       var fixBase = parseFloat(fixedBase);
       //console.log('fixedBase=', fixedBase);
     };
-    console.log('10**update = 10**',av.grd.msg.update, '=', 10**av.grd.msg.update);
+    //console.log('10**update = 10**',av.grd.msg.update, '=', 10**av.grd.msg.update);
     if ( av.utl.isNumber(parseFloat(standardNotationNum)) ) {
       stdNum = parseFloat(standardNotationNum);
-      console.log('stdNum=', stdNum,'; num=', standardNotationNum, '; fixedBase=', fixedBase);
+      //console.log('stdNum=', stdNum,'; num=', standardNotationNum, '; fixedBase=', fixedBase);
       if (10**27 <= stdNum ) {numStr = stdNum.toExponential(3); }  //console.log('stdNum =',stdNum,'; numStr=', numStr); }
 
       else if (10**26 <= stdNum ) {numStr = (stdNum/10**24).toFixed(fixBase+0) + "Y"; }  //console.log('stdNum =',stdNum,'; numStr=', numStr); }

@@ -208,7 +208,6 @@ jQuery(document).ready(function($) {
   // handle drop
   dra.on('drop', (el, target, source) => {
     if (av.debug.dnd) { console.log('DnD: dra.on_drop: el=', el); }
-    console.log('DnD: dra.on_drop: el=', el);
     // if the drop is not accepted at this target, cancel and return
     if (!av.dnd.accepts(el, target, source)) {
       dra.cancel();
@@ -372,17 +371,17 @@ jQuery(document).ready(function($) {
   // allow click selection only if it's within the freezer
   $('.navColClass').on('click', function(eleClck) {
     document.body.style.cursor = "default"; // want the mouse to be default for click
-    console.log('in $navColClass.onclick: eleClck.target.className=', eleClck.target.className);
-    console.log('eleClck=', eleClck);
-    console.log('eleClck.target.id=', eleClck.target.id);
+    //console.log('in $navColClass.onclick: eleClck.target.className=', eleClck.target.className);
+    //console.log('eleClck=', eleClck);
+    //console.log('eleClck.target.id=', eleClck.target.id);
     if (eleClck.target) {
       var classList = eleClck.target.className.split(" "); // eleClck.target.className is a string
       av.dnd.selectedType = eleClck.target.classList[1];
-      console.log('classList=', classList);
+      //console.log('classList=', classList);
       if (av.dnd.selectedId !== '' && eleClck.target.id === av.dnd.selectedId) {
         $('#' + eleClck.target.id).css('background', 'inherit');
         $('#' + eleClck.target.id).css('border-color', 'inherit');
-        console.log('unclicked?: eleClck.target=', eleClck.target);
+        //console.log('unclicked?: eleClck.target=', eleClck.target);
         av.dnd.selectedId = '';
       }
       else if (av.dnd.selectedId === '' && classList.indexOf('item') != -1) { // if the target is of class 'item' (aka draggable item)
